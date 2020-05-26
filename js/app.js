@@ -48,7 +48,7 @@ function reset() {
   phraseDiv.removeChild(phraseDiv.firstElementChild);
   phraseDiv.appendChild(newUl);
   const newPhrase = getRandomPhraseAsArray(phrases);
-  chars = newPhrase;
+  chars = newPhrase; //changing the previous phrase to the new phrase so that correct and incorrect guesses are accounted for properly
   addPhraseToDisplay(newPhrase);
 }
 
@@ -74,7 +74,7 @@ function checkLetter(e) {
         startDiv.style.display = '';
         startDiv.className = 'lose';
         startButton.textContent = 'Try Again';
-        phraseDiv.style.display = 'none';
+        phraseDiv.style.display = 'none'; //hiding transition effects on the letters after the game is lost
         if (startDiv.lastElementChild.tagName !== 'P') { //preventing duplicate "You Lose!" message
         const p = document.createElement('p');
         p.textContent = "You Lose!";
@@ -112,7 +112,7 @@ qwerty.addEventListener('click', (e) => {
       startDiv.style.display = '';
       startDiv.className = 'win';
       startButton.textContent = 'Play Again';
-      phraseDiv.style.display = 'none';
+      phraseDiv.style.display = 'none'; //hiding transition effects on the letters after the game is won
       if (startDiv.lastElementChild.tagName !== 'P') { //preventing duplicate "You Win!" message
       const p = document.createElement('p');
       p.textContent = "You Win!";
@@ -128,5 +128,5 @@ qwerty.addEventListener('click', (e) => {
         }
       })
     }
-  }, 850);
+  }, 1000);
 });
